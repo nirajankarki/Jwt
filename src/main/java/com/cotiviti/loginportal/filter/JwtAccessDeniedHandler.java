@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.OutputStream;
 
-import static com.cotiviti.loginportal.constansts.SecurityContstant.ACESS_DENIED_MESSAGE;
+import static com.cotiviti.loginportal.constansts.SecurityContstant.ACCESS_DENIED_MESSAGE;
 import static org.springframework.http.HttpStatus.UNAUTHORIZED;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
@@ -21,7 +21,7 @@ public class JwtAccessDeniedHandler implements AccessDeniedHandler {
     @Override
     public void handle(HttpServletRequest request, HttpServletResponse response, AccessDeniedException e) throws IOException, ServletException {
         HttpResponse httpResponse = new HttpResponse(UNAUTHORIZED.value(),
-                UNAUTHORIZED, UNAUTHORIZED.getReasonPhrase().toUpperCase(),ACESS_DENIED_MESSAGE);
+                UNAUTHORIZED, UNAUTHORIZED.getReasonPhrase().toUpperCase(),ACCESS_DENIED_MESSAGE);
         response.setContentType(APPLICATION_JSON_VALUE);
         response.setStatus(UNAUTHORIZED.value());
         OutputStream outputStream = response.getOutputStream();
